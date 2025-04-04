@@ -63,6 +63,5 @@
     }
   },
   "sensors": [
-    /* Removed the left_encoder; empty array or omit entirely if no sensors */
   ]
 }
