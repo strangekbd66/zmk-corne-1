@@ -106,10 +106,9 @@
             bindings = <
                 &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T        &kp UP  &kp Y    &kp U    &kp I       &kp O     &kp P      &kp BSPC
                 &td0       &kp A      &kp S      &kp D      &kp F      &kp G        &kp LEFT &kp RET  &kp RIGHT &kp H     &kp J     &kp K      &kp L      &kp SEMI    &kp SQT
-                &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B        &kp C_MUTE &kp DOWN &kp N   &kp M      &kp COMMA &kp DOT    &kp FSLH   &trans
+                &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B        &kp DOWN &kp N   &kp M      &kp COMMA &kp DOT    &kp FSLH   &trans
                                         &kp LGUI &mo 1 /*SYM*/ &kp SPACE  &kp ENTER &mo 2 /*NUM*/ &kp RALT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
         sym_layer {
@@ -117,10 +116,9 @@
             bindings = <
                 &kp ESC     &kp EXCL  &kp AT     &kp POUND &kp DOLLAR &kp PERCENT  &mmv MOVE_UP  &kp CARET &kp AMPERSAND &kp ASTRK &kp SLASH &kp BACKSLASH &kp DEL
                 &kp LESS_THAN &kp LEFT_PARENTHESIS &kp LEFT_BRACE &kp LEFT_BRACKET &kp DOT &kp COLON &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &kp UNDER &kp PIPE &kp EQUAL &kp QUOTE &kp GRAVE  &kp PG_UP
-                &kp GREATER_THAN &kp RIGHT_PARENTHESIS &kp RIGHT_BRACE &kp RIGHT_BRACKET &kp COMMA &kp SEMI &kp C_MUTE &mmv MOVE_DOWN &kp MINUS &kp PLUS &kp QUESTION &kp DOUBLE_QUOTES &kp TILDE &trans
+                &kp GREATER_THAN &kp RIGHT_PARENTHESIS &kp RIGHT_BRACE &kp RIGHT_BRACKET &kp COMMA &kp SEMI &mmv MOVE_DOWN &kp MINUS &kp PLUS &kp QUESTION &kp DOUBLE_QUOTES &kp TILDE &trans
                                           &trans &trans &trans   &kp INS &kp DEL &trans
             >;
-            sensor-bindings = <&scroll_encoder>;
         };
 
         num_layer {
@@ -128,10 +126,9 @@
             bindings = <
                 &trans &trans &trans &trans &trans &trans &mmv MOVE_UP &trans &trans &trans &trans &trans &kp BSPC
                 &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
-                &trans &trans &trans &trans &trans &trans &kp C_MUTE &mmv MOVE_DOWN &trans &trans &trans &trans &trans &trans
+                &trans &trans &trans &trans &trans &trans &mmv MOVE_DOWN &trans &trans &trans &trans &trans &trans
                                       &trans &trans &trans  &kp RET &trans &trans
             >;
-            sensor-bindings = <&scroll_encoder>;
         };
 
         system_layer {
@@ -139,10 +136,9 @@
             bindings = <
                 &studio_unlock &kp F1  &kp F2  &kp F3  &kp F4 &kp F5         &mmv MOVE_UP   &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11
                 &bt BT_CLR_ALL &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &bootloader &mkp LCLK &mkp MCLK &mkp RCLK &kp PRINTSCREEN &kp F12
-                &ext_power EP_TOG &sys_reset &trans &bootloader &out OUT_USB &out OUT_BLE &kp C_MUTE &mmv MOVE_DOWN &trans &trans &bootloader &sys_reset &kp SCROLLLOCK &kp PAUSE_BREAK
+                &ext_power EP_TOG &sys_reset &trans &bootloader &out OUT_USB &out OUT_BLE &mmv MOVE_DOWN &trans &trans &bootloader &sys_reset &kp SCROLLLOCK &kp PAUSE_BREAK
                                                  &trans &trans &trans  &trans &trans &trans
             >;
-            sensor-bindings = <&scroll_encoder>;
         };
 
         game_layer {
@@ -150,10 +146,9 @@
             bindings = <
                 &kp TAB  &kp Q &kp W &kp E &kp R &kp T &kp UP &kp Y &kp U &kp I &kp O &kp P &kp BSPC
                 &td0     &kp A &kp S &kp D &kp F &kp G &kp LEFT &kp ENTER &kp RIGHT &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
-                &kp LCTRL &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE &kp DOWN &kp N &kp M &kp COMMA &kp DOT &kp FSLH &to 0
+                &kp LCTRL &kp Z &kp X &kp C &kp V &kp B &kp DOWN &kp N &kp M &kp COMMA &kp DOT &kp FSLH &to 0
                                       &kp LGUI &mo 1 &kp SPACE  &kp ENTER &mo 2 &kp RALT
             >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
     };
 };
