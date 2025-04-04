@@ -1,69 +1,207 @@
-{
-  "id": "eyelash_corne",
-  "name": "Eyelash Corne",
-  "layouts": {
-    "default_layout": {
-      "name": "default_layout",
-      "layout": [
-        { "row": 0, "col": 0,  "x":  0,    "y": 0.37 },
-        { "row": 0, "col": 1,  "x":  1,    "y": 0.37 },
-        { "row": 0, "col": 2,  "x":  2,    "y": 0.12 },
-        { "row": 0, "col": 3,  "x":  3,    "y": 0    },
-        { "row": 0, "col": 4,  "x":  4,    "y": 0.12 },
-        { "row": 0, "col": 5,  "x":  5,    "y": 0.24 },
+/*
+ * If the Keymap Editor still chokes on these lines, remove them entirely
+ * and keep them in a separate file used by your ZMK build.
+ */
+// #define ZMK_POINTING_DEFAULT_MOVE_VAL 600
+// #define ZMK_POINTING_DEFAULT_SCRL_VAL 25
+// #include <input/processors.dtsi>
+// #include <zephyr/dt-bindings/input/input-event-codes.h>
+// #include <behaviors.dtsi>
+// #include <behaviors/num_word.dtsi>
+// #include <dt-bindings/zmk/bt.h>
+// #include <dt-bindings/zmk/ext_power.h>
+// #include <dt-bindings/zmk/keys.h>
+// #include <dt-bindings/zmk/outputs.h>
+// #include <dt-bindings/zmk/pointing.h>
+// #include <dt-bindings/zmk/rgb.h>
+// #include "zmk-helpers/helper.h"
+// #include "eyelash_corne/keymap.h"
+// #include "zmk-helpers/unicode-chars/french.dtsi"
+// #include "zmk-helpers/unicode-chars/currency.dtsi"
 
-        { "row": 0, "col": 6,  "x":  9.25, "y": 0.24, "label": "5-way up" },
-        { "row": 0, "col": 7,  "x": 11.5, "y": 0.24 },
-        { "row": 0, "col": 8,  "x": 12.5, "y": 0.12 },
-        { "row": 0, "col": 9,  "x": 13.5, "y": 0    },
-        { "row": 0, "col": 10, "x": 14.5, "y": 0.12 },
-        { "row": 0, "col": 11, "x": 15.5, "y": 0.37 },
-        { "row": 0, "col": 12, "x": 16.5, "y": 0.37 },
+/* 
+ * Anything not strictly Devicetree overlay can prevent the Keymap Editor
+ * from finding the root node. So keep the lines above commented out if 
+ * you want the Editor to parse this file.
+ */
 
-        { "row": 1, "col": 0,  "x":  0,    "y": 1.37 },
-        { "row": 1, "col": 1,  "x":  1,    "y": 1.37 },
-        { "row": 1, "col": 2,  "x":  2,    "y": 1.12 },
-        { "row": 1, "col": 3,  "x":  3,    "y": 1    },
-        { "row": 1, "col": 4,  "x":  4,    "y": 1.12 },
-        { "row": 1, "col": 5,  "x":  5,    "y": 1.24 },
+ / {
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
 
-        { "row": 1, "col": 6,  "x":  8.25, "y": 1.24, "label": "5-way left" },
-        { "row": 1, "col": 7,  "x":  9.25, "y": 1.24, "label": "5-way press" },
-        { "row": 1, "col": 8,  "x": 10.25, "y": 1.24, "label": "5-way right" },
-        { "row": 1, "col": 9,  "x": 11.5,  "y": 1.24 },
-        { "row": 1, "col": 10, "x": 12.5,  "y": 1.12 },
-        { "row": 1, "col": 11, "x": 13.5,  "y": 1    },
-        { "row": 1, "col": 12, "x": 14.5,  "y": 1.12 },
-        { "row": 1, "col": 13, "x": 15.5,  "y": 1.37 },
-        { "row": 1, "col": 14, "x": 16.5,  "y": 1.37 },
+        adjust_layer {
+            if-layers = <1 2>; /* SYM = 1, NUM = 2 */
+            then-layer = <3>;  /* SYSTEM = 3 */
+        };
+    };
 
-        { "row": 2, "col": 0,  "x":  0,    "y": 2.37 },
-        { "row": 2, "col": 1,  "x":  1,    "y": 2.37 },
-        { "row": 2, "col": 2,  "x":  2,    "y": 2.12 },
-        { "row": 2, "col": 3,  "x":  3,    "y": 2    },
-        { "row": 2, "col": 4,  "x":  4,    "y": 2.12 },
-        { "row": 2, "col": 5,  "x":  5,    "y": 2.24 },
+    behaviors {
+        /* Example of a custom tap-dance behavior: */
+        td0: td0 {
+            compatible = "zmk,behavior-tap-dance";
+            display-name = "Shift/Caps Lock Tap Dance";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_SHIFT>, <&kp CAPS>;
+        };
 
-        /* Removed the "label": "4\n2" entry at col:6 */
-        { "row": 2, "col": 6,  "x":  9.25, "y": 2.24, "label": "5-way down" },
-        { "row": 2, "col": 7,  "x": 11.5,  "y": 2.24 },
-        { "row": 2, "col": 8,  "x": 12.5,  "y": 2.12 },
-        { "row": 2, "col": 9,  "x": 13.5,  "y": 2    },
-        { "row": 2, "col": 10, "x": 14.5,  "y": 2.12 },
-        { "row": 2, "col": 11, "x": 15.5,  "y": 2.37 },
-        { "row": 2, "col": 12, "x": 16.5,  "y": 2.37 },
+        /*
+         * REMOVED rgb_encoder and scroll_encoder since there's no encoder on this board
+         *
+         * rgb_encoder: rgb_encoder {
+         *     compatible = "zmk,behavior-sensor-rotate";
+         *     #sensor-binding-cells = <0>;
+         *     bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+         * };
+         * 
+         * scroll_encoder: scroll_encoder {
+         *     compatible = "zmk,behavior-sensor-rotate";
+         *     #sensor-binding-cells = <0>;
+         *     bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+         *     tap-ms = <100>;
+         * };
+         */
+    };
 
-        { "row": 3, "col": 3,  "x":  3.5,  "y": 3.12 },
-        { "row": 3, "col": 4,  "x":  4.5,  "y": 3.12, "r": 12,  "rx":  4.5,  "ry": 4.12 },
-        { "row": 3, "col": 5,  "x":  5.5,  "y": 3.12, "r": 24,  "rx":  5.15, "ry": 4.33 },
+    combos {
+        compatible = "zmk,combos";
 
-        { "row": 3, "col": 6,  "x": 11,    "y": 3.12, "r": -24, "rx": 12.3, "ry": 4.33 },
-        { "row": 3, "col": 7,  "x": 12,    "y": 3.12, "r": -12, "rx": 13,   "ry": 4.12 },
-        { "row": 3, "col": 8,  "x": 13,    "y": 3.12 }
-      ]
-    }
-  },
-  "sensors": [
-    /* Removed the left_encoder; empty array or omit entirely if no sensors */
-  ]
-}
+        backspace {
+            bindings = <&kp BACKSPACE>;
+            key-positions = <27 28>; /* example positions; adjust if needed */
+        };
+
+        delete {
+            bindings = <&kp DELETE>;
+            key-positions = <33 39>;
+        };
+
+        goequal {
+            bindings = <&goequal>;
+            key-positions = <42 43>;
+        };
+
+        saveandquit {
+            bindings = <&savequit>;
+            key-positions = <15 16>;
+        };
+    };
+
+    macros {
+        goequal: goequal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp EQUAL>;
+            label = "GOEQUAL";
+        };
+
+        savequit: savequit {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp COLON &kp W &kp Q>;
+            label = "SAVEQUIT";
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer {
+            display-name = "Base";
+            bindings = <
+                &kp TAB    &kp Q      &kp W      &kp E      &kp R      &kp T        
+                &kp UP     &kp Y      &kp U      &kp I      &kp O      &kp P        
+                &kp BSPC
+
+                &td0       &kp A      &kp S      &kp D      &kp F      &kp G        
+                &kp LEFT   &kp ENTER  &kp RIGHT  &kp H      &kp J      &kp K        
+                &kp L      &kp SEMI   &kp SQT
+
+                &kp LCTRL  &kp Z      &kp X      &kp C      &kp V      &kp B        
+                &kp C_MUTE &kp DOWN   &kp N      &kp M      &kp COMMA  &kp DOT      
+                &kp FSLH   &trans
+
+                             &kp LGUI  &mo 1 /*SYM*/ &kp SPACE  
+                             &kp ENTER &mo 2 /*NUM*/ &kp RALT
+            >;
+            /* REMOVED any sensor-bindings that reference the encoders */
+            /* sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>; */
+        };
+
+        sym_layer {
+            display-name = "Symbols";
+            bindings = <
+                &kp ESC        &kp EXCL   &kp AT       &kp POUND     &kp DOLLAR     &kp PERCENT    
+                &mmv MOVE_UP   &kp CARET  &kp AMPERSAND &kp ASTRK     &kp SLASH      &kp BACKSLASH  
+                &kp DEL
+
+                &kp LESS_THAN  &kp LEFT_PARENTHESIS   &kp LEFT_BRACE &kp LEFT_BRACKET 
+                &kp DOT        &kp COLON              &mmv MOVE_LEFT &mkp LCLK        
+                &mmv MOVE_RIGHT &kp UNDER &kp PIPE    &kp EQUAL      &kp QUOTE &kp GRAVE &kp PG_UP
+
+                &kp GREATER_THAN &kp RIGHT_PARENTHESIS &kp RIGHT_BRACE &kp RIGHT_BRACKET 
+                &kp COMMA        &kp SEMI              &kp C_MUTE      &mmv MOVE_DOWN     
+                &kp MINUS       &kp PLUS &kp QUESTION &kp DOUBLE_QUOTES &kp TILDE &trans
+
+                                  &trans &trans &trans
+                                  &kp INS &kp DEL &trans
+            >;
+            /* REMOVED encoder sensor-bindings */
+        };
+
+        num_layer {
+            display-name = "Num";
+            bindings = <
+                &trans &trans &trans &trans &trans &trans  &mmv MOVE_UP 
+                &trans &trans &trans &trans &trans &kp BSPC
+
+                &trans &kp N1 &kp N2 &kp N3 &kp N4 &kp N5  &mmv MOVE_LEFT &mkp LCLK 
+                &mmv MOVE_RIGHT &kp N6 &kp N7 &kp N8 &kp N9 &kp N0 &kp DEL
+
+                &trans &trans &trans &trans &trans &trans &kp C_MUTE &mmv MOVE_DOWN 
+                &trans &trans &trans &trans &trans &trans
+
+                             &trans &trans &trans
+                             &kp RET &trans &trans
+            >;
+            /* REMOVED encoder sensor-bindings */
+        };
+
+        system_layer {
+            display-name = "System";
+            bindings = <
+                &studio_unlock &kp F1  &kp F2  &kp F3  &kp F4 &kp F5
+                &mmv MOVE_UP   &kp F6  &kp F7  &kp F8  &kp F9 &kp F10
+                &kp F11
+
+                &bt BT_CLR_ALL &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+                &mmv MOVE_LEFT &mkp LCLK &mmv MOVE_RIGHT &bootloader &mkp LCLK &mkp MCLK
+                &mkp RCLK &kp PRINTSCREEN &kp F12
+
+                &ext_power EP_TOG &sys_reset &trans &bootloader &out OUT_USB &out OUT_BLE
+                &kp C_MUTE &mmv MOVE_DOWN &trans &trans &bootloader &sys_reset &kp SCROLLLOCK &kp PAUSE_BREAK
+
+                             &trans &trans &trans
+                             &trans &trans &trans
+            >;
+            /* REMOVED encoder sensor-bindings */
+        };
+
+        game_layer {
+            display-name = "Game";
+            bindings = <
+                &kp TAB  &kp Q &kp W &kp E &kp R &kp T  &kp UP
+                &kp Y    &kp U &kp I &kp O &kp P       &kp BSPC
+
+                &td0     &kp A &kp S &kp D &kp F &kp G &kp LEFT 
+                &kp ENTER &kp RIGHT &kp H &kp J &kp K &kp L &kp SEMI &kp SQT
+
+                &kp LCTRL &kp Z &kp X &kp C &kp V &kp B &kp C_MUTE 
+                &kp DOWN  &kp N &kp M &kp COMMA &kp DOT &kp FSLH &to 0
+
+                           &kp LGUI &mo 1 &kp SPACE
+                           &kp ENTER &mo 2 &kp RALT
+            >;
+            /* REMOVED any sensor-bindings referencing encoders */
+        };
+    };
+};
