@@ -1,11 +1,34 @@
 manifest:
   remotes:
+      # zmk official
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: dsifry
+      url-base: https://github.com/dsifry
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
       remote: zmkfirmware
       revision: main
       import: app/west.yml
+    - name: nice-view-mod
+      remote: dsifry 
+      revision: main             
+    - name: zmk-helpers
+      remote: urob
+      revision: main
+    - name: zmk-adaptive-key
+      remote: urob
+      revision: main
+    - name: zmk-auto-layer
+      remote: urob
+      revision: main
+    - name: zmk-leader-key
+      remote: urob
+      revision: main
+    - name: zmk-tri-state
+      remote: urob
+      revision: main
   self:
     path: config
