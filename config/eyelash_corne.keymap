@@ -37,7 +37,7 @@
         Control_Mod_L: Control_Mod_L {
             compatible = "zmk,behavior-hold-tap";
             label = "CONTROL_MOD_L";
-            bindings = <&none>, <&none>;
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -50,7 +50,7 @@
         Control_Mod_R: Control_Mod_R {
             compatible = "zmk,behavior-hold-tap";
             label = "CONTROL_MOD_R";
-            bindings = <&none>, <&none>;
+            bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
             tapping-term-ms = <200>;
@@ -136,10 +136,10 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC         &kp Q  &kp W        &kp E                  &kp R               &kp T                                           &kp UP                           &kp Y        &kp U                &kp I                &kp O             &kp P     &kp MINUS
-&kp TAB         &kp A  &kp S        &kp D                  &kp F               &kp G                                 &kp LEFT  &kp ENTER       &kp RIGHT_ARROW  &kp H        &kp J                &kp K                &kp L             &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &mt GLOBE X  &mt LEFT_ALT C         &mt LEFT_CONTROL V  &kp B                    &kp SPACE              &kp DOWN_ARROW                   &kp N        &mt RIGHT_CONTROL M  &mt RIGHT_ALT COMMA  &mt GLOBE PERIOD  &kp FSLH  &kp RIGHT_SHIFT
-                                    &mt LG(W) LS(LC(TAB))  &lt 1 DEL           &mt LEFT_COMMAND RETURN                                                          &lt 2 SPACE  &lt 3 BACKSPACE      &mt RG(T) RC(TAB)
+&kp ESC         &kp Q  &kp W                   &kp E                      &kp R                          &kp T                                           &kp UP                           &kp Y        &kp U                           &kp I                           &kp O                        &kp P     &kp MINUS
+&kp TAB         &kp A  &kp S                   &kp D                      &kp F                          &kp G                                 &kp LEFT  &kp ENTER       &kp RIGHT_ARROW  &kp H        &kp J                           &kp K                           &kp L                        &kp SEMI  &kp SQT
+&kp LEFT_SHIFT  &kp Z  &Control_Mod_L GLOBE X  &Control_Mod_L LEFT_ALT C  &Control_Mod_L LEFT_CONTROL V  &kp B                    &kp SPACE              &kp DOWN_ARROW                   &kp N        &Control_Mod_R RIGHT_CONTROL M  &Control_Mod_R RIGHT_ALT COMMA  &Control_Mod_R GLOBE PERIOD  &kp FSLH  &kp RIGHT_SHIFT
+                                               &mt LG(W) LS(LC(TAB))      &lt 1 DEL                      &mt LEFT_COMMAND RETURN                                                          &lt 2 SPACE  &lt 3 BACKSPACE                 &mt RG(T) RC(TAB)
             >;
         };
 
