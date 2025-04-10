@@ -256,10 +256,10 @@
 
         Scroll_Layer {
             bindings = <
-&trans      &trans  &trans  &trans  &trans  &trans                                &scrl_mod_mac_up                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans      &trans  &trans  &trans  &trans  &trans            &scrl_mod_mac_left  &trans              &scrl_mod_mac_right  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LSHIFT  &trans  &trans  &trans  &trans  &trans  &trans                        &scrl_mod_mac_down                       &trans  &trans  &trans  &trans  &trans  &kp RSHIFT
-                            &trans  &trans  &trans                                                                         &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                             &msc MOVE_Y(-10)                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans            &msc MOVE_X(10)  &trans            &msc MOVE_X(-10)  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans                     &msc MOVE_Y(10)                     &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans                                                                 &trans  &trans  &trans
             >;
 
             label = "Scroll_Layer";
