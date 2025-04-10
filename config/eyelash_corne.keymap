@@ -64,9 +64,9 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS_WORD_CAPS_LOCK";
             #binding-cells = <0>;
-            bindings = <&sk LEFT_SHIFT>, <&caps_word>, <&kp CAPS>;
+            bindings = <&sk LEFT_SHIFT>, <&caps_word>, <&kp CLCK>;
 
-            tapping-term-ms = <1000>;
+            tapping-term-ms = <200>;
         };
 
         scrl_mod_mac_up: scrl_mod_mac_up {
@@ -256,10 +256,10 @@
 
         Scroll_Layer {
             bindings = <
-&trans          &trans  &trans  &trans  &trans  &trans                                &scrl_mod_mac_up                         &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans  &trans  &trans  &trans  &trans            &scrl_mod_mac_left  &trans              &scrl_mod_mac_right  &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &trans  &trans  &trans  &trans  &trans  &trans                        &scrl_mod_mac_down                       &trans  &trans  &trans  &trans  &trans  &kp RIGHT_SHIFT
-                                &trans  &trans  &trans                                                                         &trans  &trans  &trans
+&trans      &trans  &trans  &trans  &trans  &trans                                &scrl_mod_mac_up                         &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans  &trans  &trans  &trans  &trans            &scrl_mod_mac_left  &trans              &scrl_mod_mac_right  &trans  &trans  &trans  &trans  &trans  &trans
+&kp LSHIFT  &trans  &trans  &trans  &trans  &trans  &trans                        &scrl_mod_mac_down                       &trans  &trans  &trans  &trans  &trans  &kp RSHIFT
+                            &trans  &trans  &trans                                                                         &trans  &trans  &trans
             >;
 
             label = "Scroll_Layer";
