@@ -64,45 +64,81 @@
             compatible = "zmk,behavior-tap-dance";
             label = "SHIFT_CAPS_WORD_CAPS_LOCK";
             #binding-cells = <0>;
-            bindings = <&sk LEFT_SHIFT>, <&caps_word>, <&kp CAPSLOCK>;
+            bindings = <&sk LEFT_SHIFT>, <&caps_word>, <&kp CAPS>;
 
             tapping-term-ms = <1000>;
         };
 
-        scrl_mod_mac_up: scrl_mod_mac_up {
+        fast_scrl_mod_mac_up: fast_scrl_mod_mac_up {
             compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_UP";
+            label = "FAST_SCRL_MOD_MAC_UP";
             bindings = <&msc MOVE_Y(-10)>, <&msc MOVE_Y(-20)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
+            mods = <(MOD_LALT|MOD_RALT)>;
         };
 
-        scrl_mod_mac_down: scrl_mod_mac_down {
+        fast_scrl_mod_mac_down: fast_scrl_mod_mac_down {
             compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_DOWN";
+            label = "FAST_SCRL_MOD_MAC_DOWN";
             bindings = <&msc MOVE_Y(10)>, <&msc MOVE_Y(20)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
+            mods = <(MOD_RALT|MOD_LALT)>;
         };
 
-        scrl_mod_mac_left: scrl_mod_mac_left {
+        fast_scrl_mod_mac_left: fast_scrl_mod_mac_left {
             compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_LEFT";
-            bindings = <&msc MOVE_X(-10)>, <&msc MOVE_X(-20)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
-        };
-
-        scrl_mod_mac_right: scrl_mod_mac_right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_RIGHT";
+            label = "FAST_SCRL_MOD_MAC_LEFT";
             bindings = <&msc MOVE_X(10)>, <&msc MOVE_X(20)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LALT)>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+
+        fast_scrl_mod_mac_right: fast_scrl_mod_mac_right {
+            compatible = "zmk,behavior-mod-morph";
+            label = "FAST_SCRL_MOD_MAC_RIGHT";
+            bindings = <&msc MOVE_X(-10)>, <&msc MOVE_X(-20)>;
+
+            #binding-cells = <0>;
+            mods = <(MOD_LALT|MOD_RALT)>;
+        };
+
+        up_arrow_up_scrl: up_arrow_up_scrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "UP_ARROW_UP_SCRL";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "tap-preferred";
+            bindings = <&fast_scrl_mod_mac_up>, <&kp>;
+        };
+
+        dwn_arrow_dwn_scrl: dwn_arrow_dwn_scrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "DWN_ARROW_DWN_SCRL";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "tap-preferred";
+            bindings = <&fast_scrl_mod_mac_down>, <&kp>;
+        };
+
+        lft_arrow_lft_scrl: lft_arrow_lft_scrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LFT_ARROW_LFT_SCRL";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "tap-preferred";
+            bindings = <&fast_scrl_mod_mac_left>, <&kp>;
+        };
+
+        rght_arrow_rght_scrl: rght_arrow_rght_scrl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RGHT_ARROW_RGHT_SCRL";
+            #binding-cells = <2>;
+            tapping-term-ms = <500>;
+            flavor = "tap-preferred";
+            bindings = <&fast_scrl_mod_mac_right>, <&kp>;
         };
     };
 
@@ -196,20 +232,20 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC                     &kp Q  &kp W                   &kp E                      &kp R                          &kp T                                           &kp UP                &kp Y        &kp U                           &kp I                       &kp O                   &kp P     &kp MINUS
-&kp TAB                     &kp A  &Control_Mod_L GLOBE S  &Control_Mod_L LEFT_ALT D  &Control_Mod_L LEFT_CONTROL F  &kp G                                 &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &Control_Mod_R RIGHT_CONTROL J  &Control_Mod_R RIGHT_ALT K  &Control_Mod_R GLOBE L  &kp SEMI  &kp SQT
-&Shift_Caps_Word_Caps_Lock  &kp Z  &Control_Mod_L LG(X) X  &Control_Mod_L LG(C) C     &Control_Mod_L LG(V) V         &kp B                    &kp SPACE              &kp DOWN              &kp N        &kp M                           &kp COMMA                   &kp PERIOD              &kp FSLH  &Shift_Caps_Word_Caps_Lock
-                                                           &mt LG(W) LS(LC(TAB))      &lt 1 DEL                      &mt LEFT_COMMAND RETURN                                               &lt 2 SPACE  &lt 4 BACKSPACE                 &mt RG(T) RC(TAB)
+&kp ESC                     &kp Q  &kp W                   &kp E                      &kp R                          &kp T                                                             &up_arrow_up_scrl 0 UP                                     &kp Y        &kp U                           &kp I                       &kp O                   &kp P     &kp MINUS
+&kp TAB                     &kp A  &Control_Mod_L GLOBE S  &Control_Mod_L LEFT_ALT D  &Control_Mod_L LEFT_CONTROL F  &kp G                                 &lft_arrow_lft_scrl 0 LEFT  &kp ENTER                   &rght_arrow_rght_scrl 0 RIGHT  &kp H        &Control_Mod_R RIGHT_CONTROL J  &Control_Mod_R RIGHT_ALT K  &Control_Mod_R GLOBE L  &kp SEMI  &kp SQT
+&Shift_Caps_Word_Caps_Lock  &kp Z  &Control_Mod_L LG(X) X  &Control_Mod_L LG(C) C     &Control_Mod_L LG(V) V         &kp B                    &kp SPACE                                &dwn_arrow_dwn_scrl 0 DOWN                                 &kp N        &kp M                           &kp COMMA                   &kp PERIOD              &kp FSLH  &Shift_Caps_Word_Caps_Lock
+                                                           &mt LG(W) LS(LC(TAB))      &lt 1 DEL                      &mt LEFT_COMMAND RETURN                                                                                                      &lt 2 SPACE  &lt 4 BACKSPACE                 &mt RG(T) RC(TAB)
             >;
         };
 
         NAV_and_SYSTEM_CONTROL {
             display-name = "NAV_and_SYSTEM_CONTROL";
             bindings = <
-&trans                      &kp C_RW  &kp C_PP              &kp C_FF              &kp LC(UP_ARROW)      &show_or_hide_launchpad                                    &scrl_mod_mac_up                         &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_MUTE       &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
-&trans                      &trans    &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(NUMBER_5))  &kp LS(PG_UP)                          &scrl_mod_mac_left  &kp LALT            &scrl_mod_mac_right  &kp HOME              &kp LEFT              &kp UP           &kp DOWN           &kp RIGHT        &kp END
-&Shift_Caps_Word_Caps_Lock  &trans    &trans                &trans                &trans                &kp PG_DN                &kp C_MUTE                        &scrl_mod_mac_down                       &trans                &kp RC(LEFT)          &kp RS(RC(TAB))  &kp RC(TAB)        &kp RC(RIGHT)    &Shift_Caps_Word_Caps_Lock
-                                                            &trans                &trans                &mt LEFT_COMMAND RETURN                                                                             &trans                &trans                &trans
+&trans                      &kp C_RW  &kp C_PP              &kp C_FF              &kp LC(UP_ARROW)      &show_or_hide_launchpad                                         &fast_scrl_mod_mac_up                              &kp C_BRIGHTNESS_DEC  &kp C_BRIGHTNESS_INC  &kp C_MUTE       &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans
+&trans                      &trans    &kp LS(LG(NUMBER_3))  &kp LS(LG(NUMBER_4))  &kp LS(LG(NUMBER_5))  &kp LS(PG_UP)                          &fast_scrl_mod_mac_left  &kp LALT                 &fast_scrl_mod_mac_right  &kp HOME              &kp LEFT              &kp UP           &kp DOWN           &kp RIGHT        &kp END
+&Shift_Caps_Word_Caps_Lock  &trans    &trans                &trans                &trans                &kp PG_DN                &kp C_MUTE                             &fast_scrl_mod_mac_down                            &trans                &kp RC(LEFT)          &kp RS(RC(TAB))  &kp RC(TAB)        &kp RC(RIGHT)    &Shift_Caps_Word_Caps_Lock
+                                                            &trans                &trans                &mt LEFT_COMMAND RETURN                                                                                            &trans                &trans                &trans
             >;
         };
 
