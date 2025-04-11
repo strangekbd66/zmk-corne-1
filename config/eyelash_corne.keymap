@@ -62,42 +62,6 @@
             tapping-term-ms = <200>;
         };
 
-        scrl_mod_mac_up: scrl_mod_mac_up {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_UP";
-            bindings = <&msc MOVE_Y(-10)>, <&msc MOVE_Y(-20)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        scrl_mod_mac_down: scrl_mod_mac_down {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_DOWN";
-            bindings = <&msc MOVE_Y(10)>, <&msc MOVE_Y(20)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        scrl_mod_mac_left: scrl_mod_mac_left {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_LEFT";
-            bindings = <&msc MOVE_X(10)>, <&msc MOVE_X(20)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
-        scrl_mod_mac_right: scrl_mod_mac_right {
-            compatible = "zmk,behavior-mod-morph";
-            label = "SCRL_MOD_MAC_RIGHT";
-            bindings = <&msc MOVE_X(-10)>, <&msc MOVE_X(-20)>;
-
-            #binding-cells = <0>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-
         arrow_scroll: arrow_scroll {
             compatible = "zmk,behavior-hold-tap";
             label = "ARROW_SCROLL";
