@@ -210,10 +210,10 @@
 
         Scroll_Layer {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                             &msc MOVE_Y(-10)                    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans            &msc MOVE_X(10)  &trans            &msc MOVE_X(-10)  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans                     &msc MOVE_Y(10)                     &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans                                                                 &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                                                &msc MOVE_Y(-10)                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                               &msc MOVE_X(10)  &trans            &msc MOVE_X(-10)  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                     &trans                     &msc MOVE_Y(10)                     &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &Contro_Mod_Universal LEFT_COMMAND RETURN                                                                 &trans  &trans  &trans
             >;
 
             label = "Scroll_Layer";
