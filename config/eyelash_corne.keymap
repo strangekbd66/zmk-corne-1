@@ -220,12 +220,5 @@
         };
     };
 
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        Activate_Function_and_Bluetooth {
-            if-layers = <1 4>;
-            then-layer = <3>;
-        };
-    };
+    conditional_layers { compatible = "zmk,conditional-layers"; };
 };
