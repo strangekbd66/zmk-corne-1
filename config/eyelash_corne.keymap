@@ -145,6 +145,8 @@
 &kp LCTRL  &kp Z  &kp X  &kp C         &kp V      &kp B                                      &trans                                  &arrow_scroll MOVE_Y(5) DOWN                                  &kp N        &kp M            &kp COMMA          &kp DOT   &kp FSLH  &kp RIGHT_SHIFT
                          &kp LEFT_ALT  &lt 1 DEL  &Contro_Mod_Universal LEFT_COMMAND RETURN                                                                                                        &lt 2 SPACE  &lt 4 BACKSPACE  &mt RG(T) RC(TAB)
             >;
+
+            sensor-bindings = <&scroll_encoder>;
         };
 
         NAV_and_SYSTEM_CONTROL {
