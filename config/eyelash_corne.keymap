@@ -82,20 +82,31 @@
             quick-tap-ms = <175>;
             flavor = "tap-preferred";
         };
+
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "SCROLL_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc SCRL_UP>, <&msc SCRL_DOWN>;
+        };
+
+        rgb_encoder: rgb_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "RGB_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>, <&rgb_ug RGB_BRD>;
+        };
+
+        horizontal_scroll_encoder: horizontal_scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate";
+            label = "HORIZONTAL_SCROLL_ENCODER";
+            #sensor-binding-cells = <0>;
+            bindings = <&msc MOVE_X(5)>, <&msc MOVE_X(-5)>;
+        };
     };
 
     combos {
         compatible = "zmk,combos";
-
-        Sleep {
-            bindings = <&kp LA(LG(C_POWER))>;
-            key-positions = <42 44>;
-        };
-
-        Reopen_Closed_Tab {
-            bindings = <&kp LS(LG(T))>;
-            key-positions = <42 47>;
-        };
 
         Volume_Up {
             bindings = <&kp C_VOLUME_UP>;
@@ -121,42 +132,6 @@
             bindings = <&kp C_BRIGHTNESS_DEC>;
             key-positions = <42 43>;
         };
-
-        Full-Screen_Left {
-            bindings = <&kp LC(LEFT)>;
-            key-positions = <42 28>;
-        };
-
-        Full-Screen_Right {
-            bindings = <&kp RC(RIGHT)>;
-            key-positions = <47 41>;
-        };
-
-        Mission_Control {
-            bindings = <&kp LC(UP_ARROW)>;
-            key-positions = <28 42 47 41>;
-        };
-
-        Caps_Word {
-            bindings = <&caps_word>;
-            key-positions = <28 41>;
-        };
-    };
-
-    macros {
-        show_or_hide_launchpad: show_or_hide_launchpad {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&macro_tap>,
-                <&kp LS(A)>,
-                <&macro_release>,
-                <&kp GLOBE>;
-
-            label = "SHOW_OR_HIDE_LAUNCHPAD";
-        };
     };
 
     keymap {
@@ -165,11 +140,13 @@
         default_layer {
             display-name = "QWERTY";
             bindings = <
-&kp ESC         &kp B  &kp W                   &kp E                      &kp R                          &kp T                                                                              &arrow_scroll MOVE_Y(-5) UP                                   &kp Y        &kp U                           &kp I                       &kp O                   &kp P     &kp MINUS
-&kp TAB         &kp A  &Control_Mod_L GLOBE S  &Control_Mod_L LEFT_ALT D  &Control_Mod_L LEFT_CONTROL F  &kp G                                                &arrow_scroll MOVE_X(5) LEFT  &mo 5                         &arrow_scroll MOVE_X(-5) RIGHT  &kp H        &Control_Mod_R RIGHT_CONTROL J  &Control_Mod_R RIGHT_ALT K  &Control_Mod_R GLOBE L  &kp SEMI  &kp SQT
-&kp LEFT_SHIFT  &kp Z  &Control_Mod_L LG(X) X  &Control_Mod_L LG(C) C     &Control_Mod_L LG(V) V         &kp B                                      &trans                                  &arrow_scroll MOVE_Y(5) DOWN                                  &kp N        &kp M                           &kp COMMA                   &kp PERIOD              &kp FSLH  &kp RIGHT_SHIFT
-                                               &mt LG(W) LS(LC(TAB))      &lt 1 DEL                      &Contro_Mod_Universal LEFT_COMMAND RETURN                                                                                                        &lt 2 SPACE  &lt 4 BACKSPACE                 &mt RG(T) RC(TAB)
+&kp ESC    &kp Q  &kp W  &kp E         &kp R      &kp T                                                                              &arrow_scroll MOVE_Y(-5) UP                                   &kp Y        &kp U            &kp I              &kp O     &kp P     &kp BSPC
+&kp TAB    &kp A  &kp S  &kp D         &kp F      &kp G                                                &arrow_scroll MOVE_X(5) LEFT  &mo 5                         &arrow_scroll MOVE_X(-5) RIGHT  &kp J        &kp K            &kp L              &kp SEMI  &kp SQT   &kp RET
+&kp LCTRL  &kp Z  &kp X  &kp C         &kp V      &kp B                                      &trans                                  &arrow_scroll MOVE_Y(5) DOWN                                  &kp N        &kp M            &kp COMMA          &kp DOT   &kp FSLH  &kp RIGHT_SHIFT
+                         &kp LEFT_ALT  &lt 1 DEL  &Contro_Mod_Universal LEFT_COMMAND RETURN                                                                                                        &lt 2 SPACE  &lt 4 BACKSPACE  &mt RG(T) RC(TAB)
             >;
+
+            sensor-bindings = <&scroll_encoder>;
         };
 
         NAV_and_SYSTEM_CONTROL {
@@ -180,6 +157,8 @@
 &kp LEFT_SHIFT  &trans    &trans                &trans                &trans                &kp PG_DN                                  &trans            &trans          &trans                &kp RC(LEFT)          &kp RS(RC(TAB))  &kp RC(TAB)        &kp RC(RIGHT)    &kp RIGHT_SHIFT
                                                 &trans                &trans                &Contro_Mod_Universal LEFT_COMMAND RETURN                                    &trans                &lt 3 BACKSPACE       &trans
             >;
+
+            sensor-bindings = <&inc_dec_kp 0 0>;
         };
 
         NUMBER_and_SYMBOL {
